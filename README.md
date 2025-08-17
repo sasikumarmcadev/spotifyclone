@@ -1,4 +1,4 @@
-# Harmonic Discoveries
+# Harmonic Discoveriess
 
 A web app where users can search for songs/artists, get smart music recommendations, and create a playlist on their Spotify account with one click.
 
