@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import {NextRequest} from 'next/server';
 
 export async function GET(req: NextRequest) {
-  const state = crypto.randomBytes(16).toString("hex");
+  const state = crypto.randomUUID();
 
   const scopes = [
     "user-read-private",
