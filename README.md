@@ -4,7 +4,7 @@ A web app where users can search for songs/artists, get smart music recommendati
 
 This project is built with Next.js, TypeScript, Tailwind CSS, Spotify API, and Last.fm API.
 
-## Getting Started
+## Getting Starteds
 
 First, you'll need to set up your environment variables. Copy the `.env.local.example` file to a new file named `.env.local` and fill in the required values:
 
