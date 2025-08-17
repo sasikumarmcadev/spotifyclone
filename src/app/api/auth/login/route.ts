@@ -5,6 +5,8 @@ export async function GET(req: NextRequest) {
   const state = crypto.randomBytes(16).toString("hex");
 
   const scopes = [
+    "user-read-private",
+    "user-read-email",
     "user-top-read",
     "playlist-modify-private",
     "playlist-modify-public",
