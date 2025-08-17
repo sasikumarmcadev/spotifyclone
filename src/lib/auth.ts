@@ -53,7 +53,8 @@ export async function createSession(tokens: any) {
 }
 
 export async function getSession(): Promise<Session | null> {
-  const cookie = cookies().get("session")?.value;
+  const cookieStore = cookies();
+  const cookie = cookieStore.get("session")?.value;
   const session = await decrypt(cookie);
 
   if (!session) return null;
