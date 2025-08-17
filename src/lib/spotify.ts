@@ -1,3 +1,4 @@
+
 export async function sFetch<T>(
   accessToken: string,
   path: string,
@@ -18,6 +19,7 @@ export async function sFetch<T>(
 
   if (res.status === 429) {
     const retryAfter = parseInt(res.headers.get("Retry-After") || "1", 10);
+    console.log(`Spotify API rate limited. Retrying after ${retryAfter} seconds.`);
     await new Promise((r) => setTimeout(r, (retryAfter + 1) * 1000));
     return sFetch(accessToken, path, init);
   }
@@ -25,7 +27,8 @@ export async function sFetch<T>(
   const data = await res.json();
 
   if (!res.ok) {
-    console.error(`Spotify API Error: ${res.status} ${res.statusText}`, data);
+    const errorMessage = `Spotify API Error: ${res.status} ${res.statusText} - ${JSON.stringify(data.error)}`;
+    console.error(errorMessage);
     throw new Error(data.error?.message || "Failed to fetch from Spotify API");
   }
 
