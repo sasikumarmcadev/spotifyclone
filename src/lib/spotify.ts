@@ -29,7 +29,7 @@ export async function sFetch<T>(
   if (!res.ok) {
     const errorMessage = `Spotify API Error: ${res.status} ${res.statusText} - ${JSON.stringify(data.error)}`;
     console.error(errorMessage);
-    throw new Error(data.error?.message || "Failed to fetch from Spotify API");
+    throw new Error(data.error?.message || "Failed to fetch from Spotify API.");
   }
 
   return data as T;

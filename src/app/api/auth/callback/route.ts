@@ -24,6 +24,8 @@ export async function GET(request: NextRequest) {
     grant_type: "authorization_code",
     code: code,
     redirect_uri: callbackUrl,
+    client_id: process.env.SPOTIFY_CLIENT_ID!,
+    client_secret: process.env.SPOTIFY_CLIENT_SECRET!,
   });
 
   try {
@@ -31,7 +33,6 @@ export async function GET(request: NextRequest) {
       method: "POST",
       headers: { 
         "Content-Type": "application/x-www-form-urlencoded",
-        "Authorization": "Basic " + Buffer.from(process.env.SPOTIFY_CLIENT_ID + ":" + process.env.SPOTIFY_CLIENT_SECRET).toString("base64"),
       },
       body,
     });
